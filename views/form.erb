@@ -6,14 +6,29 @@
     <input id="name" type="text" class="form-control" name="name" placeholder="My Name!">
   </div>
   <br>
+  <div class="tag-group">
+
+  </div>
   <div class="input-group">
     <span class="input-group-addon"> Tag: </span>
-    <input id="tag" type="text" class="form-control" name="tag" placeholder="Tag Me!">
+    <div class="add_button">
+      <input id="tag" type="text" class="form-control input" name="tag[]" placeholder="Tag Me!">
+      <button type="button" class="btn btn-info btn-sm" id="add_tag">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+    </div>
   </div>
   <br>
-  <div class="input-group">
-    <span class="input-group-addon"> Ingredient: </span>
-    <input id="ingredient" type="text" class="form-control" name="ingredient" placeholder="What will I have?">
+  <div class="ingredient-group">
+    <div class="input-group">
+      <span class="input-group-addon"> Ingredient: </span>
+      <div class="add_button">
+        <input id="ingredient" type="text" class="form-control input" name="ingredient[]" placeholder="What will I have?">
+        <button type="button" class="btn btn-info btn-sm" id="add_ingredient">
+          <span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </div>
+    </div>
   </div>
   <br>
   <div class="input-group">
