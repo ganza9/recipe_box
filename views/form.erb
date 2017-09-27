@@ -1,0 +1,37 @@
+<h1>Add A Delicious Recipe!</h1>
+
+<form action="/" method="post">
+  <div class="input-group">
+    <span class="input-group-addon"> Title: </span>
+    <input id="name" type="text" class="form-control" name="name" placeholder="My Name!">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon"> Tag: </span>
+    <input id="tag" type="text" class="form-control" name="tag" placeholder="Tag Me!">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon"> Ingredient: </span>
+    <input id="ingredient" type="text" class="form-control" name="ingredient" placeholder="What will I have?">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon"> Rating: </span>
+    <select class="form-control" id="rating" name="rating">
+      <option value="0">Please Rate Me!</option>
+      <option value="1">1 Star</option>
+      <option value="2">2 Star</option>
+      <option value="3">3 Star</option>
+      <option value="4">4 Star</option>
+      <option value="5">5 Star</option>
+    </select>
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon"> Recipe: </span>
+    <textarea class="form-control" rows="5" id="recipe" name="recipe" placeholder="How to make me!"></textarea>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-success">Add Recipe</button>
+</form>
