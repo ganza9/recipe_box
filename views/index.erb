@@ -3,11 +3,7 @@
 <% if @recipes.any?() %>
   <ul>
     <% @recipes.each do |recipe| %>
-      <li><a href="/recipe/<%= recipe.id %>"><%= recipe.name %></a>
-        <% recipe.tag.each do |tag| %>
-          <a href="/tag/<%= tag.id %>"><%= tag.name %></a>
-        <% end %>
-      </li>
+      <li><a href="/recipe/<%= recipe.id %>"><%= recipe.name %></a></li>
     <% end %>
   </ul>
 <% else %>

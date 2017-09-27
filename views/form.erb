@@ -6,13 +6,23 @@
     <input id="name" type="text" class="form-control" name="name" placeholder="My Name!">
   </div>
   <br>
+  <div class="input-group">
+    <span class="input-group-addon"> Prepration Time: </span>
+    <input id="name" type="number" class="form-control" name="prep" placeholder="My Prepration Time!">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon"> Cooking Time: </span>
+    <input id="name" type="number" class="form-control" name="cooking" placeholder="My Cooking Time!">
+  </div>
+  <br>
   <div class="tag-group">
 
   </div>
   <div class="input-group">
     <span class="input-group-addon"> Tag: </span>
     <div class="add_button">
-      <input id="tag" type="text" class="form-control input" name="tag[]" placeholder="Tag Me!">
+      <input id="tag" type="text" class="form-control input" name="tags" placeholder="Tag Me!">
       <button type="button" class="btn btn-info btn-sm" id="add_tag">
         <span class="glyphicon glyphicon-plus"></span>
       </button>
@@ -23,7 +33,7 @@
     <div class="input-group">
       <span class="input-group-addon"> Ingredient: </span>
       <div class="add_button">
-        <input id="ingredient" type="text" class="form-control input" name="ingredient[]" placeholder="What will I have?">
+        <input id="ingredient" type="text" class="form-control input" name="ingredients" placeholder="What will I have?">
         <button type="button" class="btn btn-info btn-sm" id="add_ingredient">
           <span class="glyphicon glyphicon-plus"></span>
         </button>
@@ -44,8 +54,8 @@
   </div>
   <br>
   <div class="input-group">
-    <span class="input-group-addon"> Recipe: </span>
-    <textarea class="form-control" rows="5" id="recipe" name="recipe" placeholder="How to make me!"></textarea>
+    <span class="input-group-addon"> Instructions: </span>
+    <textarea class="form-control" rows="5" id="instruction" name="instruction" placeholder="Each line should be separated by @!"></textarea>
   </div>
   <br>
   <button type="submit" class="btn btn-success">Add Recipe</button>

@@ -1,0 +1,60 @@
+<h1><%= @recipe.name %>
+  <%if @recipe.rating == 0 %>
+    <span class="glyphicon glyphicon-star-empty"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+  <% elsif @recipe.rating == 1  %>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+  <% elsif @recipe.rating == 2  %>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+  <% elsif @recipe.rating == 3  %>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+  <% elsif @recipe.rating == 4  %>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+  <% elsif @recipe.rating == 5  %>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+  <%end%>
+</h1>
+<br>
+<% @recipe.tags.each do |tag|%>
+  <a href="tag/<%=tag.id%>" class="tag">#<%= tag.name%></a>
+<% end%>
+<br><br>
+<img src="/img/<%= @img %>.jpg" class="img-thumbnail" alt="<%= @recipe.name %>" width="500" height="500">
+<h3>Cooking Time: <%= @recipe.cooking_time%> min</h3>
+
+<h3>Prepration Time: <%= @recipe.prep_time%> min</h3>
+
+<h3>Total Time: <%= @recipe.cooking_time+ @recipe.prep_time %> min</h3>
+
+<h3>Ingredients:</h3>
+<% @recipe.ingredients.each do |ingredient| %>
+  <li><%= ingredient.name %></li>
+<% end %>
+
+<h3>Instructions:</h3>
+<% @instructions.each do |instruction| %>
+  <li><%= instruction %></li>
+<% end %>
