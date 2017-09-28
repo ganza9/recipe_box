@@ -36,6 +36,14 @@
     <span class="glyphicon glyphicon-star"></span>
     <span class="glyphicon glyphicon-star"></span>
   <%end%>
+  <div class="delete_edit">
+  <a href="/delete/<%= @recipe.id%>">
+    <span class="glyphicon glyphicon-trash"></span>
+  </a>
+    <a href="/edit/<%= @recipe.id%>">
+    <span class="glyphicon glyphicon-pencil"></span>
+  </a>
+</div>
 </h1>
 <br>
 <% @recipe.tags.each do |tag|%>

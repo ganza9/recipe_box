@@ -1,0 +1,90 @@
+<h1>Edit <%= @recipe.name%> Recipe!</h1>
+
+<form action="/edit/<%= @recipe.id%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div class="input-group">
+    <span class="input-group-addon"> Title: </span>
+    <input id="name" type="text" class="form-control" name="name" placeholder="My Name!" value="<%= @recipe.name%>">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon"> Prepration Time: </span>
+    <input id="name" type="number" class="form-control" name="prep" placeholder="My Prepration Time!" value="<%= @recipe.prep_time%>">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"> Cooking Time: </span>
+    <input id="name" type="number" class="form-control" name="cooking" placeholder="My Cooking Time!" value="<%= @recipe.cooking_time%>">
+  </div>
+  <br>
+  <div class="tag-group">
+    <% @recipe.tags.each  do |tag|%>
+      <div class="input-group existing_item">
+        <span class="input-group-addon"> Tag: </span>
+        <form class="" action="/delete_tag/<%= @recipe.id%>/<%= tag.name%>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input id="name" type="text" class="form-control input" name="<%= tag.id%>"  placeholder="Tag Me!" value="<%= tag.name%>">
+          <button type="submit" class="btn btn-info btn-sm" >
+            <span class="glyphicon glyphicon-minus"></span>
+          </button>
+        </form>
+      </div>
+    <% end %>
+    <br>
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"> Add new Tag: </span>
+    <div class="add_button">
+      <input id="tag" type="text" class="form-control input" name="tags" placeholder="Tag Me!">
+      <button type="submit" class="btn btn-info btn-sm" id="add_tag">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+    </div>
+  </div>
+  <br>
+  <div class="ingredient-group">
+    <% @recipe.ingredients.each  do |ingredient|%>
+      <div class="input-group existing_item">
+        <span class="input-group-addon"> Ingredient: </span>
+        <form class="" action="/delete_ingredient/<%= @recipe.id%>/<%= ingredient.name%>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input id="name" type="text" class="form-control input" name="<%= ingredient.id%>"  placeholder="What will I have?"  value="<%= ingredient.name%>">
+          <button type="submit" class="btn btn-info btn-sm" >
+            <span class="glyphicon glyphicon-minus"></span>
+          </button>
+        </form>
+      </div>
+    <% end %>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon">Add new Ingredient: </span>
+      <div class="add_button">
+        <input id="ingredient" type="text" class="form-control input" name="ingredients" placeholder="What will I have?">
+        <button type="button" class="btn btn-info btn-sm" id="add_ingredient">
+          <span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon"> Rating: </span>
+    <select class="form-control" id="rating" name="rating">
+      <option value="<%= @recipe.rating %>"><%= @recipe.rating %> Star</option>
+      <option value="0">No Star</option>
+      <option value="1">1 Star</option>
+      <option value="2">2 Star</option>
+      <option value="3">3 Star</option>
+      <option value="4">4 Star</option>
+      <option value="5">5 Star</option>
+    </select>
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon"> Instructions: </span>
+    <textarea class="form-control" rows="5" id="instruction" name="instruction" placeholder="Each line should be separated by @!"><%= @recipe.instruction %></textarea>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-success">Edit Recipe</button>
+</form>

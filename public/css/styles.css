@@ -4,9 +4,9 @@ h1 span{
 .tag {
   font-weight: bold;
 }
-.add_button .input{
+.add_button .input, .existing_item .input{
   width: 90% !important;
 }
-.add_button button{
+.add_button button, .existing_item .btn{
   float: right;
 }
