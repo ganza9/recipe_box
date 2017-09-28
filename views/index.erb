@@ -1,13 +1,21 @@
-<h1>My Favorite Recipe List</h1>
+<div class="breadcrum">
+  <li><a href="/">Home</a></li>
+</div>
+<div class="wrapper">
+  <h1>My Favorite Recipe List</h1>
 
-<% if @recipes.any?() %>
-  <ul>
-    <% @recipes.each do |recipe| %>
-      <li><a href="/recipe/<%= recipe.id %>"><%= recipe.name %></a></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>There are no recipes yet! Please add some!</p>
-<% end %>
+  <% if @recipes.any?() %>
+  <div class="list">
+    <ul class="list_of_recipe">
+      <% @recipes.each do |recipe| %>
+        <li><a href="/recipe/<%= recipe.id %>"><%= recipe.name %></a></li>
+      <% end %>
+    </ul>
+  </div>
 
-<button type="button" name="button"><a href="/form">Add Recipe</a></button>
+  <% else %>
+    <p class="no_result">There are no recipes yet! Please add some!</p>
+  <% end %>
+  <br>
+  <button type="button" name="button" class="button_add"><a href="/form">Add Recipe</a></button>
+</div>

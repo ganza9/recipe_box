@@ -1,72 +1,81 @@
-<h1><%= @recipe.name %>
-  <%if @recipe.rating == 0 %>
-    <span class="glyphicon glyphicon-star-empty"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-  <% elsif @recipe.rating == 1  %>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-  <% elsif @recipe.rating == 2  %>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-  <% elsif @recipe.rating == 3  %>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-  <% elsif @recipe.rating == 4  %>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
-  <% elsif @recipe.rating == 5  %>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star"></span>
-  <%end%>
-  <div class="delete_edit">
-  <a href="/delete/<%= @recipe.id%>">
-    <span class="glyphicon glyphicon-trash"></span>
-  </a>
-    <a href="/edit/<%= @recipe.id%>">
-    <span class="glyphicon glyphicon-pencil"></span>
-  </a>
+<div class="breadcrum">
+  <li><a href="/">Home</a></li>
+  <li>/</li>
+  <li><%= @recipe.name %> Detail</li>
 </div>
-</h1>
-<br>
-<% @recipe.tags.each do |tag|%>
-  <a href="tag/<%=tag.id%>" class="tag">#<%= tag.name%></a>
-<% end%>
-<br><br>
-<img src="/img/<%= @img %>.jpg" class="img-thumbnail" alt="<%= @recipe.name %>" width="500" height="500">
-<h3>Cooking Time: <%= @recipe.cooking_time%> min</h3>
+<div class="wrapper">
+  <div class="detail">
+    <h1><%= @recipe.name %>
+      <%if @recipe.rating == 0 %>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+      <% elsif @recipe.rating == 1  %>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+      <% elsif @recipe.rating == 2  %>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+      <% elsif @recipe.rating == 3  %>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+      <% elsif @recipe.rating == 4  %>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+      <% elsif @recipe.rating == 5  %>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+      <%end%>
+      <div class="delete_edit">
+        <form class="delete" action="/delete/<%= @recipe.id%>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit" class="btn btn-info btn-xs">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+        </form>
 
-<h3>Prepration Time: <%= @recipe.prep_time%> min</h3>
+        <a href="/edit/<%= @recipe.id%>" class="btn btn-info btn-xs">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </a>
+    </div>
+    </h1>
+    <% @recipe.tags.each do |tag|%>
+      <a href="tag/<%=tag.id%>" class="tag-link" >#<%= tag.name%></a>
+    <% end%>
+    <br><br>
+    <img src="<%= @recipe.img %>" class="img-thumbnail" alt="<%= @recipe.name %>" width="500" height="500">
+    <h3>Cooking Time: <%= @recipe.cooking_time%> <%= @recipe.cooking_time_symbol%></h3>
 
-<h3>Total Time: <%= @recipe.cooking_time+ @recipe.prep_time %> min</h3>
+    <h3>Prepration Time: <%= @recipe.prep_time%> <%= @recipe.prep_time_symbol%></h3>
 
-<h3>Ingredients:</h3>
-<% @recipe.ingredients.each do |ingredient| %>
-  <li><%= ingredient.name %></li>
-<% end %>
+    <h3>Total Time: <%= @recipe.cooking_time+ @recipe.prep_time %> <%= @recipe.prep_time_symbol%></h3>
 
-<h3>Instructions:</h3>
-<% @instructions.each do |instruction| %>
-  <li><%= instruction %></li>
-<% end %>
-<br>
+    <h3>Ingredients:</h3>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient.name %></li>
+    <% end %>
 
-<a href="/">Return Home</a>
-<br>
+    <h3>Instructions:</h3>
+    <% @instructions.each do |instruction| %>
+      <li><%= instruction %></li>
+    <% end %>
+    <br>
+  </div>
+</div>

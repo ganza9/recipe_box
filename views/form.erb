@@ -1,35 +1,47 @@
-<h1>Add A Delicious Recipe!</h1>
+<div class="breadcrum">
+  <li><a href="/">Home</a></li>
+  <li>/</li>
+  <li>Recipe Form</li>
+</div>
+<div class="wrapper">
+  <h1>Add A Delicious Recipe!</h1>
 
-<form action="/" method="post">
-  <div class="input-group">
-    <span class="input-group-addon"> Title: </span>
-    <input id="name" type="text" class="form-control" name="name" placeholder="My Name!">
-  </div>
-  <br>
-  <div class="input-group">
-    <span class="input-group-addon"> Prepration Time: </span>
-    <input id="name" type="number" class="form-control" name="prep" placeholder="My Prepration Time!">
-  </div>
-  <br>
-  <div class="input-group">
-    <span class="input-group-addon"> Cooking Time: </span>
-    <input id="name" type="number" class="form-control" name="cooking" placeholder="My Cooking Time!">
-  </div>
-  <br>
-  <div class="tag-group">
-
-  </div>
-  <div class="input-group">
-    <span class="input-group-addon"> Tag: </span>
-    <div class="add_button">
-      <input id="tag" type="text" class="form-control input" name="tags" placeholder="Tag Me!">
-      <button type="button" class="btn btn-info btn-sm" id="add_tag">
-        <span class="glyphicon glyphicon-plus"></span>
-      </button>
+  <form action="/" method="post">
+    <div class="input-group">
+      <span class="input-group-addon"> Title: </span>
+      <input id="name" type="text" class="form-control" name="name" placeholder="My Name!">
     </div>
-  </div>
-  <br>
-  <div class="ingredient-group">
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon"> Prepration Time: </span>
+      <input id="name" type="number" class="form-control half" name="prep" placeholder="My Prepration Time!">
+      <select class="form-control half" name="prep-symbol">
+        <option value="Hour">Hour</option>
+        <option value="Minute">Minute</option>
+      </select>
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon"> Cooking Time: </span>
+      <input id="name" type="number" class="form-control half" name="cooking" placeholder="My Cooking Time!">
+      <select class="form-control half" name="cooking-symbol">
+        <option value="Hour">Hour</option>
+        <option value="Minute">Minute</option>
+      </select>
+    </div>
+    <br>
+    <div class="tag-group"></div>
+    <div class="input-group">
+      <span class="input-group-addon"> Tag: </span>
+      <div class="add_button">
+        <input id="tag" type="text" class="form-control input" name="tags" placeholder="Tag Me!">
+        <button type="button" class="btn btn-info btn-sm" id="add_tag">
+          <span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </div>
+    </div>
+    <br>
+    <div class="ingredient-group"></div>
     <div class="input-group">
       <span class="input-group-addon"> Ingredient: </span>
       <div class="add_button">
@@ -39,24 +51,29 @@
         </button>
       </div>
     </div>
-  </div>
-  <br>
-  <div class="input-group">
-    <span class="input-group-addon"> Rating: </span>
-    <select class="form-control" id="rating" name="rating">
-      <option value="0">Please Rate Me!</option>
-      <option value="1">1 Star</option>
-      <option value="2">2 Star</option>
-      <option value="3">3 Star</option>
-      <option value="4">4 Star</option>
-      <option value="5">5 Star</option>
-    </select>
-  </div>
-  <br>
-  <div class="input-group">
-    <span class="input-group-addon"> Instructions: </span>
-    <textarea class="form-control" rows="5" id="instruction" name="instruction" placeholder="Each line should be separated by @!"></textarea>
-  </div>
-  <br>
-  <button type="submit" class="btn btn-success">Add Recipe</button>
-</form>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon"> Rating: </span>
+      <select class="form-control" id="rating" name="rating">
+        <option value="0">Please Rate Me!</option>
+        <option value="1">1 Star</option>
+        <option value="2">2 Star</option>
+        <option value="3">3 Star</option>
+        <option value="4">4 Star</option>
+        <option value="5">5 Star</option>
+      </select>
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon"> Image: </span>
+      <input type="text" class="form-control" name="img" placeholder="My picture!">
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon"> Instructions: </span>
+      <textarea class="form-control" rows="5" id="instruction" name="instruction" placeholder="Each line should be separated by @!"></textarea>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Add Recipe</button>
+  </form>
+</div>
